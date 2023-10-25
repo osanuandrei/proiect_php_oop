@@ -1,7 +1,6 @@
 <?php
 
+include('../Eveniment.php');
 
-require_once '../Eveniment.php';
-
-$instance = new Eveniment();
-$instance->createEvent();
+$evenimentInstance = new Eveniment();
+$evenimentInstance->createEvent();

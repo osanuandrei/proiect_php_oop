@@ -1,14 +1,9 @@
 <?php
 
-include('./db.php');
-session_start();
-
-class Admin {
-
-    public $conn;
-
-    public function __construct($conn) {
-        $this->conn = $conn;
+class Index
+{
+    public function connectToDb() {
+        return mysqli_connect("localhost", "root", "", "proiect_php_oop");
     }
 
     public function authenticate() {
@@ -18,21 +13,21 @@ class Admin {
         $admins = $this->getAdminsFromDb();
         $firstRow = $admins[0];
 
-        $userDB = $firstRow['username'];
-        $passDB = $firstRow['password'];
+        $userDB = $firstRow['user'];
+        $passDB = $firstRow['pass'];
 
         if($user === $userDB && $pass === $passDB) {
-            header("Location: ../frontend/dashboard.html");
+            header("Location: http://127.0.0.1/proiect_php_oop/frontend/dashboard.html");
+
         } else {
             echo 'Datele sunt incorecte, incercati din nou. ';
         }
-
-
     }
 
     public function getAdminsFromDb() {
+        $conn = $this->connectToDb();
         $query = "SELECT * FROM admins";
-        $result = $this->conn->query($query);
+        $result = $conn->query($query);
 
         if ($result && $result->num_rows > 0) {
             $data = array();
@@ -45,11 +40,3 @@ class Admin {
         }
     }
 }
-
-
-$admin = new Admin($conn);
-$admin->authenticate();
-
-session_abort();
-
-?>
