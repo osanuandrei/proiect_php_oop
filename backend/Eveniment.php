@@ -10,12 +10,10 @@ class Eveniment extends Index
         $despre = $_POST['despre'];
         $dateAndTime = $_POST['data_si_ora'];
 
-        $query2 = 'SELECT * FROM admins';
-        $result = $conn->query($query2);
-
-
         $query = 'INSERT INTO eveniment (titlu, data_si_ora, despre) VALUES ("' . $titlu . '", "' . $dateAndTime . '", "' . $despre . '")';
         $conn->query($query);
+
+        header("Location: http://127.0.0.1/proiect_php_oop/frontend/dashboard.html");
     }
 
     public function generateWebsite() {

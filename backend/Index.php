@@ -18,6 +18,7 @@ class Index
 
         if($user === $userDB && $pass === $passDB) {
             header("Location: http://127.0.0.1/proiect_php_oop/frontend/dashboard.html");
+            session_start();
 
         } else {
             echo 'Datele sunt incorecte, incercati din nou. ';
