@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <div class="container">
+        <div class="adaugare-eveniment">
+            <h1>Adaugare eveniment</h1>
+            <form action="../backend/processes/creareEveniment.php" method="post">
+                <div class="container">
+                    <label for="titlu"><b>Titlu Eveniment</b></label>
+                    <input type="text" placeholder="Enter Title" name="titlu">
+
+                    <label for="despre"><b>Despre</b></label>
+                    <input type="password" placeholder="Enter Despre" name="despre">
+
+                    <label for="data_si_ora">Select a Date:</label>
+                    <input type="datetime-local" id="date" name="data_si_ora">
+
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
